@@ -1,0 +1,54 @@
+package com.bolnica.project.implementation;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.bolnica.project.models.Bolnica;
+import com.bolnica.project.repository.BolnicaRepository;
+import com.bolnica.project.services.BolnicaService;
+
+@Component
+public class BolnicaServiceImpl implements BolnicaService {
+
+//	@Autowired
+	private final BolnicaRepository repo;
+	
+	public BolnicaServiceImpl(BolnicaRepository repo) {
+		this.repo = repo;
+	}
+	
+	@Override
+	public List<Bolnica> getAll() {
+		return repo.findAll();
+	}
+
+	@Override
+	public boolean existsById(int id) {
+		return repo.existsById(id);
+	}
+
+	@Override
+	public Bolnica create(Bolnica t) {
+		return repo.save(t);
+	}
+
+	@Override
+	public Optional<Bolnica> update(Bolnica t, int id) {
+		if (existsById(id)) {
+			t.setId(id);
+			return Optional.of(repo.save(t));
+		}
+		return Optional.empty();
+	}
+
+	@Override
+	public void delete(int id) {
+		if(existsById(id)) {
+		repo.deleteById(id);
+		}
+	}
+
+}
