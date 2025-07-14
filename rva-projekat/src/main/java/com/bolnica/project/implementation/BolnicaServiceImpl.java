@@ -51,4 +51,14 @@ public class BolnicaServiceImpl implements BolnicaService {
 		}
 	}
 
+	@Override
+	public Optional<Bolnica> findById(int id) {
+		return repo.findById(id);
+	}
+
+	@Override
+	public List<Bolnica> getBolniceByNaziv(String naziv) {
+		return repo.findByNazivContainingIgnoreCase(naziv);
+	}
+
 }

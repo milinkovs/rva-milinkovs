@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
+import com.bolnica.project.models.Dijagnoza;
+import com.bolnica.project.models.Odeljenje;
 import com.bolnica.project.models.Pacijent;
 import com.bolnica.project.repository.PacijentRepository;
 import com.bolnica.project.services.PacijentService;
@@ -25,26 +27,47 @@ public class PacijentServiceImpl implements PacijentService {
 
 	@Override
 	public boolean existsById(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		return repo.existsById(id);
 	}
 
 	@Override
 	public Pacijent create(Pacijent t) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.save(t);
 	}
 
 	@Override
 	public Optional<Pacijent> update(Pacijent t, int id) {
-		// TODO Auto-generated method stub
+		if (existsById(id)) {
+			t.setId(id);
+			return Optional.of(repo.save(t));
+		}
 		return Optional.empty();
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		if (existsById(id)) {
+			repo.deleteById(id);
+		}
 	}
 
+	@Override
+	public Optional<Pacijent> findById(int id) {
+		return repo.findById(id);
+	}
+
+	@Override
+	public List<Pacijent> getByOsiguranje(boolean zdr_osiguranje) {
+		return repo.findByZdrOsiguranje(zdr_osiguranje);
+	}
+
+	@Override
+	public List<Pacijent> getPacijentsByDijagnoza(Dijagnoza dijagnoza) {
+		return repo.findByDijagnoza(dijagnoza);
+	}
+
+	@Override
+	public List<Pacijent> getPacijentsByOdeljenje(Odeljenje odeljenje) {
+		return repo.findByOdeljenje(odeljenje);
+	}
 }
