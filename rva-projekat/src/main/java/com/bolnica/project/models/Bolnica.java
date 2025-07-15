@@ -3,6 +3,8 @@ package com.bolnica.project.models;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +27,7 @@ public class Bolnica implements Serializable {
 	private double budzet;
 	
 	@OneToMany(mappedBy = "bolnica")
+	@JsonIgnore
 	private List<Odeljenje> odeljenja;
 	
 	
