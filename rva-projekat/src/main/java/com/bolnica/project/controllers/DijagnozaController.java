@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bolnica.project.implementation.DijagnozaServiceImpl;
 import com.bolnica.project.models.Dijagnoza;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class DijagnozaController {
 	

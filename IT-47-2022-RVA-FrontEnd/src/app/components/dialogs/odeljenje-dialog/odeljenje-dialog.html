@@ -16,8 +16,14 @@
     </div>
     <div class="form">
       <mat-form-field>
-        <mat-label>Bolnica</mat-label>
-        <mat-select [(ngModel)]="data.bolnica" name="bolnica" [disabled]="flag === 3" required>
+        <mat-select
+          [compareWith]="compare"
+          placeholder="Bolnica"
+          name="bolnica"
+          [disabled]="flag === 3"
+          [(ngModel)]="data.bolnica"
+          required
+        >
           <mat-option *ngFor="let bolnica of bolnice" [value]="bolnica">
             {{ bolnica.naziv }}
           </mat-option>

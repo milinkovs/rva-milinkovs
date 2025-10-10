@@ -40,4 +40,13 @@
 .title-center {
   margin: 0 auto;
 }
+.mat-mdc-row:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+.mat-mdc-row:hover .mat-mdc-cell {
+  background-color: rgba(63, 81, 181, 0.08);
+  transition: background-color 0.2s ease;
+}

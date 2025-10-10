@@ -1,0 +1,97 @@
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.home-container {
+    background-color: #f8f9fa;
+    min-height: 500px;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #e6f2ff;
+}
+
+.hero h2 {
+    color: #3f51b5;
+    font-size: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #0077cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background-color: #005fa3;
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    width: 85%;
+}
+
+.info-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+}
+
+.info-card mat-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    color: #3f51b5;
+    margin-bottom: 10px;
+}
+
+.info-card h3 {
+    color: #3f51b5;
+}
+
+
+.about-section, .team-section {
+    width: 80%;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #0077cc;
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}

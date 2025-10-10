@@ -18,7 +18,7 @@ import com.bolnica.project.implementation.OdeljenjeServiceImpl;
 import com.bolnica.project.models.Bolnica;
 import com.bolnica.project.models.Odeljenje;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class OdeljenjeController {
 	

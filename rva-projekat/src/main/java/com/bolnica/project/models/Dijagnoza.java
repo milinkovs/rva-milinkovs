@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Dijagnoza implements Serializable {
 	private String opis;
 	private String oznaka;
 	
-	@OneToMany(mappedBy = "dijagnoza")
+	@OneToMany(mappedBy = "dijagnoza", cascade= {CascadeType.DETACH, CascadeType.REMOVE})
 	@JsonIgnore
 	private List<Pacijent> pacijenti;
 	

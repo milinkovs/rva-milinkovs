@@ -34,4 +34,8 @@ export class OdeljenjeService {
       responseType: 'text' as 'json'
     });
   }
+
+  public getOdeljenjeById(id: number): Observable<Odeljenje> {
+    return this.httpClient.get<Odeljenje>(`${ODELJENJE_URL_R}/${id}`);
+  }
 }

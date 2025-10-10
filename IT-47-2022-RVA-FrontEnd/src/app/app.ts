@@ -9,6 +9,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 // dekorator
 @Component({
@@ -24,7 +26,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     MatToolbarModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatPaginator
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

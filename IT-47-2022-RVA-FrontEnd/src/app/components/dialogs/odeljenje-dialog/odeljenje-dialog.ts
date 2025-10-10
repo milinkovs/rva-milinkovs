@@ -98,5 +98,9 @@ export class OdeljenjeDialog implements OnInit {
     this.dialogRef.close();
     this.snackBar.open('Odustali ste.', 'Zatvori', { duration: 1000 });
   }
+
+  public compare(a: Odeljenje, b: Odeljenje) {
+    return a.id == b.id;
+  }
 }
 

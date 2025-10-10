@@ -19,7 +19,7 @@ import com.bolnica.project.models.Dijagnoza;
 import com.bolnica.project.models.Odeljenje;
 import com.bolnica.project.models.Pacijent;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class PacijentController {
 	
