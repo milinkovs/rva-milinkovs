@@ -1,0 +1,56 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened disableClose="true">
+        <mat-accordion>
+            <a mat-button style="text-align: center" [routerLink]="['/home']">
+                <mat-icon>home</mat-icon>
+            </a>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Aplikacija
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Aplikacija za vođenje evidencije
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-nav-list>
+                    <a mat-button [routerLink]="['/bolnica']">Bolnica</a>
+                </mat-nav-list>
+                <mat-nav-list>
+                    <a mat-button [routerLink]="['/odeljenje']">Odeljenje</a>
+                </mat-nav-list>
+                <mat-nav-list>
+                    <a mat-button [routerLink]="['/pacijent']">Pacijent</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+            <mat-nav-list></mat-nav-list>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Informacije
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Osnovne informacije o aplikaciji
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-nav-list>
+                    <a mat-button [routerLink]="['/home']">Početna</a>
+                </mat-nav-list>
+                <mat-nav-list>
+                    <a mat-button [routerLink]="['/author']">Autor</a>
+                </mat-nav-list>
+                <mat-nav-list>
+                    <a mat-button [routerLink]="['/about']">O nama</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+        <router-outlet>
+        </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

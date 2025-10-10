@@ -3,6 +3,9 @@ package com.bolnica.project.models;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,13 +26,14 @@ public class Odeljenje implements Serializable {
 	private int id;
 	
 	private String naziv;
-	private String lokacijal;
+	private String lokacija;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_bolnice")
-	Bolnica bolnica;
+	private Bolnica bolnica;
 	
-	@OneToMany(mappedBy = "odeljenje")
+	@OneToMany(mappedBy = "odeljenje", cascade= {CascadeType.DETACH, CascadeType.REMOVE})
+	@JsonIgnore
 	private List<Pacijent> pacijenti;
 	
 	
@@ -38,10 +42,10 @@ public class Odeljenje implements Serializable {
 		
 	}
 
-	public Odeljenje(int id, String naziv, String lokacijal) {
+	public Odeljenje(int id, String naziv, String lokacija) {
 		this.id = id;
 		this.naziv = naziv;
-		this.lokacijal = lokacijal;
+		this.lokacija = lokacija;
 	}
 
 
@@ -61,12 +65,12 @@ public class Odeljenje implements Serializable {
 		this.naziv = naziv;
 	}
 
-	public String getLokacijal() {
-		return lokacijal;
+	public String getLokacija() {
+		return lokacija;
 	}
 
-	public void setLokacijal(String lokacijal) {
-		this.lokacijal = lokacijal;
+	public void setLokacija(String lokacija) {
+		this.lokacija = lokacija;
 	}
 
 	public Bolnica getBolnica() {

@@ -6,7 +6,7 @@ INSERT INTO bolnica (id, naziv, adresa, budzet) VALUES
 (nextval('bolnica_seq'), 'Zdravstveni centar Subotica', 'Matije Korvina 1, Subotica', 6000000);
 
 -- ODELJENJE
-INSERT INTO odeljenje (id, naziv, lokacijal, id_bolnice) VALUES
+INSERT INTO odeljenje (id, naziv, lokacija, id_bolnice) VALUES
 (nextval('odeljenje_seq'), 'Interno odeljenje', 'Sprat 1', 1),
 (nextval('odeljenje_seq'), 'Hirurgija', 'Sprat 2', 1),
 (nextval('odeljenje_seq'), 'Pedijatrija', 'Sprat 1', 2),

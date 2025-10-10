@@ -1,0 +1,29 @@
+<div class="container">
+  <h3 mat-dialog-title *ngIf="flag === 1">Dodavanje bolnice: </h3>
+  <h3 mat-dialog-title *ngIf="flag === 2">Modifikacija bolnice: {{data.naziv}} </h3>
+  <h3 mat-dialog-title *ngIf="flag === 3">Brisanje bolnice: {{data.naziv}} </h3>
+
+  <form class="mat-dialog-content">
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Naziv" [(ngModel)]="data.naziv" name="naziv" [disabled]="flag === 3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Adresa" [(ngModel)]="data.adresa" name="adresa" [disabled]="flag === 3" required>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Budzet" [(ngModel)]="data.budzet" name="budzet" [disabled]="flag === 3" required>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="btn-group">
+      <button mat-button *ngIf="flag === 1" type="submit" (click)="add()">Sacuvaj</button>
+      <button mat-button *ngIf="flag === 2" type="submit" (click)="update()">Sacuvaj</button>
+      <button mat-button *ngIf="flag === 3" type="submit" (click)="delete()">Obrisi</button>
+      <button mat-button (click)="cancel()">Ponisti</button>
+    </div>
+  </form>
+</div>
