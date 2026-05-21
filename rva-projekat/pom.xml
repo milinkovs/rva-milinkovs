@@ -12,7 +12,7 @@
 	<artifactId>BolnicaSpringBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BolnicaSpringBoot</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Bolnica Zdravlje+ - Sistem za evidenciju bolnica, odeljenja, dijagnoza i pacijenata</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -45,6 +45,11 @@
 	  <dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-data-jpa</artifactId>
+	  </dependency>
+
+	  <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-validation</artifactId>
 	  </dependency>
 	
 	  <dependency>

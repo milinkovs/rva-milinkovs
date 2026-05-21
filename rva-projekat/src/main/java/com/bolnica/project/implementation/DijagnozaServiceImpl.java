@@ -3,13 +3,13 @@ package com.bolnica.project.implementation;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bolnica.project.models.Dijagnoza;
 import com.bolnica.project.repository.DijagnozaRepository;
 import com.bolnica.project.services.DijagnozaService;
 
-@Component
+@Service
 public class DijagnozaServiceImpl implements DijagnozaService {
 	
 	private final DijagnozaRepository repo;

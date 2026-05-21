@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,18 +15,24 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Odeljenje implements Serializable {
 	
-	private static final long serialVerisonUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@SequenceGenerator(name="ODELJENJE_ID_GEN", sequenceName="ODELJENJE_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ODELJENJE_ID_GEN")
 	private int id;
 	
+	@NotBlank
+	@Column(nullable = false)
 	private String naziv;
+
+	@NotBlank
+	@Column(nullable = false)
 	private String lokacija;
 	
 	@ManyToOne

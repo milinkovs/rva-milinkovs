@@ -1,21 +1,73 @@
-.container {
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
-  flex-basis: column;
+  align-items: center;
+  gap: 10px;
 }
 
-.example-container {
+.header-icon {
+  font-size: 28px;
+  height: 28px;
+  width: 28px;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.app-container {
   position: absolute;
-  top: 0;
+  top: 64px;
   bottom: 0;
   left: 0;
   right: 0;
-  border: 1px solid black;
-  cursor: pointer;
 }
 
-.example-button-row {
+.app-sidenav {
+  width: 280px;
+  background-color: #fafafa;
+  border-right: 1px solid #e0e0e0;
+}
+
+.nav-home-btn {
   display: flex;
-  align-items: left;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+}
+
+.nav-home-btn mat-icon {
+  color: #3f51b5;
+}
+
+.sidenav-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+}
+
+.sidenav-footer p {
+  margin: 2px 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.main-content {
+  padding: 20px;
+  background-color: #f8f9fa;
 }
 
 .mat-button {

@@ -1,8 +1,14 @@
-<mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened disableClose="true">
+<mat-toolbar class="app-header" color="primary">
+    <mat-icon class="header-icon">local_hospital</mat-icon>
+    <span class="header-title">Bolnica Zdravlje+</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="app-container">
+    <mat-sidenav mode="side" opened disableClose="true" class="app-sidenav">
         <mat-accordion>
-            <a mat-button style="text-align: center" [routerLink]="['/home']">
+            <a mat-button class="nav-home-btn" [routerLink]="['/home']">
                 <mat-icon>home</mat-icon>
+                <span>Početna</span>
             </a>
 
             <mat-expansion-panel>
@@ -16,13 +22,22 @@
                 </mat-expansion-panel-header>
 
                 <mat-nav-list>
-                    <a mat-button [routerLink]="['/bolnica']">Bolnica</a>
+                    <a mat-list-item [routerLink]="['/bolnica']">
+                        <mat-icon matListItemIcon>business</mat-icon>
+                        <span>Bolnica</span>
+                    </a>
                 </mat-nav-list>
                 <mat-nav-list>
-                    <a mat-button [routerLink]="['/odeljenje']">Odeljenje</a>
+                    <a mat-list-item [routerLink]="['/odeljenje']">
+                        <mat-icon matListItemIcon>apartment</mat-icon>
+                        <span>Odeljenje</span>
+                    </a>
                 </mat-nav-list>
                 <mat-nav-list>
-                    <a mat-button [routerLink]="['/dijagnoza']">Dijagnoza</a>
+                    <a mat-list-item [routerLink]="['/dijagnoza']">
+                        <mat-icon matListItemIcon>medical_information</mat-icon>
+                        <span>Dijagnoza</span>
+                    </a>
                 </mat-nav-list>
             </mat-expansion-panel>
             <mat-nav-list></mat-nav-list>
@@ -37,19 +52,33 @@
                 </mat-expansion-panel-header>
 
                 <mat-nav-list>
-                    <a mat-button [routerLink]="['/home']">Početna</a>
+                    <a mat-list-item [routerLink]="['/home']">
+                        <mat-icon matListItemIcon>home</mat-icon>
+                        <span>Početna</span>
+                    </a>
                 </mat-nav-list>
                 <mat-nav-list>
-                    <a mat-button [routerLink]="['/author']">Autor</a>
+                    <a mat-list-item [routerLink]="['/author']">
+                        <mat-icon matListItemIcon>person</mat-icon>
+                        <span>Autor</span>
+                    </a>
                 </mat-nav-list>
                 <mat-nav-list>
-                    <a mat-button [routerLink]="['/about']">O nama</a>
+                    <a mat-list-item [routerLink]="['/about']">
+                        <mat-icon matListItemIcon>info</mat-icon>
+                        <span>O nama</span>
+                    </a>
                 </mat-nav-list>
             </mat-expansion-panel>
         </mat-accordion>
+
+        <div class="sidenav-footer">
+            <p>© 2025 Bolnica Zdravlje+</p>
+            <p>IT 47/2022</p>
+        </div>
     </mat-sidenav>
     
-    <mat-sidenav-content>
+    <mat-sidenav-content class="main-content">
         <router-outlet>
         </router-outlet>
     </mat-sidenav-content>

@@ -6,25 +6,35 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Dijagnoza implements Serializable {
 	
-	private static final long serialVerisonUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@SequenceGenerator(name="DIJAGNOZA_ID_GEN", sequenceName="DIJAGNOZA_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DIJAGNOZA_ID_GEN")
 	private int id;
 	
+	@NotBlank
+	@Column(nullable = false)
 	private String naziv;
+
+	@NotBlank
+	@Column(nullable = false)
 	private String opis;
+
+	@NotBlank
+	@Column(nullable = false, unique = true)
 	private String oznaka;
 	
 	@OneToMany(mappedBy = "dijagnoza", cascade= {CascadeType.DETACH, CascadeType.REMOVE})

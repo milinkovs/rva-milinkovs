@@ -3,7 +3,7 @@ package com.bolnica.project.implementation;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bolnica.project.models.Dijagnoza;
 import com.bolnica.project.models.Odeljenje;
@@ -11,7 +11,7 @@ import com.bolnica.project.models.Pacijent;
 import com.bolnica.project.repository.PacijentRepository;
 import com.bolnica.project.services.PacijentService;
 
-@Component
+@Service
 public class PacijentServiceImpl implements PacijentService {
 	
 	private final PacijentRepository repo;

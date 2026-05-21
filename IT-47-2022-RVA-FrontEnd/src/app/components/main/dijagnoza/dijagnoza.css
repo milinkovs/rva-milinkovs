@@ -1,12 +1,32 @@
-table {
-  width: 100%;
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
-mat-toolbar {
+.mat-form-field {
+  font-size: 14px;
+  flex-grow: 1;
+  margin-top: 8px;
+}
+
+.title-center {
+  margin: 0 auto;
+}
+
+.no-result {
+  display: flex;
   justify-content: center;
+  padding: 24px;
+  font-size: 14px;
+  font-style: italic;
+  color: #888;
 }
 
-button {
-  background-color: transparent;
-  border: none;
+::ng-deep .mat-mdc-row:hover {
+  background-color: rgba(63, 81, 181, 0.06);
+  transition: background-color 0.2s ease;
+}
+
+::ng-deep .mat-mdc-row {
+  cursor: default;
 }

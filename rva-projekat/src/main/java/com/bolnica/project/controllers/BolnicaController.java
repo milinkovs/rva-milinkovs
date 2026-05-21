@@ -12,34 +12,39 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bolnica.project.implementation.BolnicaServiceImpl;
 import com.bolnica.project.models.Bolnica;
+import com.bolnica.project.services.BolnicaService;
+
+import jakarta.validation.Valid;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping("/api")
 public class BolnicaController {
 	
-	private final BolnicaServiceImpl service;
+	private final BolnicaService service;
 	
-	public BolnicaController(BolnicaServiceImpl service) {
+	public BolnicaController(BolnicaService service) {
 		this.service = service;
 	}
 	
 	@GetMapping("/bolnice") 
 	public ResponseEntity<List<Bolnica>> getAllBolnice(){
 		List<Bolnica> bolnice = service.getAll();
-		return new ResponseEntity<>(bolnice, HttpStatus.OK);
+		return ResponseEntity.ok(bolnice);
 	}
 	
 	@GetMapping("/bolnica/naziv/{naziv}")
 	public ResponseEntity<?> getBolnicalByNaziv(@PathVariable String naziv){
 		List<Bolnica> bolnice = service.getBolniceByNaziv(naziv);
 		if (bolnice.isEmpty())
-			return new ResponseEntity<String>(String.format(("No bolnice exists with naziv: %s"), naziv), HttpStatus.NOT_FOUND);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body(String.format("No bolnice exists with naziv: %s", naziv));
 			
-		return new ResponseEntity<>(bolnice, HttpStatus.OK);
+		return ResponseEntity.ok(bolnice);
 	}
 	
 	@GetMapping("/bolnica/{id}")
@@ -47,36 +52,41 @@ public class BolnicaController {
 		
 		Optional<Bolnica> bolnica = service.findById(id);
 		if(bolnica.isEmpty()) {
-			return new ResponseEntity<String>(String.format("Bolnica with id: %s does not exist", id), HttpStatus.NOT_FOUND);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body(String.format("Bolnica with id: %s does not exist", id));
 		}
-		return new ResponseEntity<>(bolnica, HttpStatus.OK);
+		return ResponseEntity.ok(bolnica);
 	}
 		
 	
 	@PostMapping("/bolnica")
-	public ResponseEntity<String> createBolnica(@RequestBody Bolnica bolnica){
+	public ResponseEntity<String> createBolnica(@Valid @RequestBody Bolnica bolnica){
 		if (service.existsById(bolnica.getId())) { 
-			return new ResponseEntity<>(String.format("Bolnica with id: %s already exists! ", bolnica.getId()), HttpStatus.CONFLICT);
+			return ResponseEntity.status(HttpStatus.CONFLICT)
+				.body(String.format("Bolnica with id: %s already exists! ", bolnica.getId()));
 		}
 		service.create(bolnica);
-		return new ResponseEntity<>(String.format(("Bolnica with id: %s has been created successfully!"), bolnica.getId()), HttpStatus.CREATED);
+		return ResponseEntity.status(HttpStatus.CREATED)
+			.body(String.format("Bolnica with id: %s has been created successfully!", bolnica.getId()));
 	}
 	
 	@DeleteMapping("/bolnica/{id}")
 	public ResponseEntity<String> deleteBolnica(@PathVariable int id){
 		if (service.existsById(id)) {
 			service.delete(id);
-			return new ResponseEntity<>(String.format(("Bolnica with id: %s has been deleted successfully!"), id), HttpStatus.OK);
+			return ResponseEntity.ok(String.format("Bolnica with id: %s has been deleted successfully!", id));
 		}
-		return new ResponseEntity<>(String.format(("Bolnica with id: %s does not exist!"), id), HttpStatus.NOT_FOUND);
+		return ResponseEntity.status(HttpStatus.NOT_FOUND)
+			.body(String.format("Bolnica with id: %s does not exist!", id));
 	}
 	
 	@PutMapping("/bolnica/{id}")
-	public ResponseEntity<String> updateBolnica(@PathVariable int id, @RequestBody Bolnica bolnica){
+	public ResponseEntity<String> updateBolnica(@PathVariable int id, @Valid @RequestBody Bolnica bolnica){
 		Optional<Bolnica> updatedBolnica = service.update(bolnica, id);
 		if (updatedBolnica.isEmpty()) {
-			return new ResponseEntity<>(String.format(("Bolnica with id: %s does not exist!"), id), HttpStatus.NOT_FOUND);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND)
+				.body(String.format("Bolnica with id: %s does not exist!", id));
 		}
-		return new ResponseEntity<>(String.format(("Bolnica with id: %s has been updated successfully!"), id), HttpStatus.OK);
+		return ResponseEntity.ok(String.format("Bolnica with id: %s has been updated successfully!", id));
 	}
 }

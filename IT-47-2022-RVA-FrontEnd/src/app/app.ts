@@ -1,4 +1,4 @@
-import { Component, NgModule, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -36,5 +36,5 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 })
 
 export class App {
-  protected readonly title = signal('IT-47-2022-RVA-FrontEnd');
+  protected readonly title = 'Bolnica Zdravlje+';
 }

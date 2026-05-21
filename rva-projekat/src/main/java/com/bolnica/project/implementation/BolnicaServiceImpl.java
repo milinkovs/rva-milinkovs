@@ -3,17 +3,15 @@ package com.bolnica.project.implementation;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bolnica.project.models.Bolnica;
 import com.bolnica.project.repository.BolnicaRepository;
 import com.bolnica.project.services.BolnicaService;
 
-@Component
+@Service
 public class BolnicaServiceImpl implements BolnicaService {
 
-//	@Autowired
 	private final BolnicaRepository repo;
 	
 	public BolnicaServiceImpl(BolnicaRepository repo) {

@@ -12,9 +12,10 @@
 .no-result {
   display: flex;
   justify-content: center;
-  padding: 14px;
+  padding: 24px;
   font-size: 14px;
   font-style: italic;
+  color: #888;
 }
 
 .mat-cell:nth-child(1),
@@ -41,3 +42,11 @@
   margin: 0 auto;
 }
 
+::ng-deep .mat-mdc-row:hover {
+  background-color: rgba(63, 81, 181, 0.06);
+  transition: background-color 0.2s ease;
+}
+
+::ng-deep .mat-mdc-row {
+  cursor: default;
+}

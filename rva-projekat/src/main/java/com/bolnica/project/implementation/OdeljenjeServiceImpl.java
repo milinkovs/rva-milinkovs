@@ -3,14 +3,14 @@ package com.bolnica.project.implementation;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.bolnica.project.models.Bolnica;
 import com.bolnica.project.models.Odeljenje;
 import com.bolnica.project.repository.OdeljenjeRepository;
 import com.bolnica.project.services.OdeljenjeService;
 
-@Component
+@Service
 public class OdeljenjeServiceImpl implements OdeljenjeService {
 	
 	private final OdeljenjeRepository repo;
